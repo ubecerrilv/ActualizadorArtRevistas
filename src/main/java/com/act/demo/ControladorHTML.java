@@ -16,7 +16,7 @@ public class ControladorHTML {
 	
 	@GetMapping()
 	public String obtenerHTML() {
-		String url = "https://revistas.unam.mx/index.php/";
+		String url = "https://revistaidentidad.uaemex.mx/index.php/";
 		System.out.println(url);
 		System.out.print(recuperador.obtenerHTML(url));
 
