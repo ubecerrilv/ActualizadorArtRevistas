@@ -8,10 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
-import com.microsoft.playwright.options.LoadState;
 
 @Service
 public class RecuperadorHTML {
@@ -21,25 +19,19 @@ public class RecuperadorHTML {
 		try (Playwright playwright = Playwright.create()) {
             Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
             Page page = browser.newPage();
-            page.navigate(url);
 
-            // Esperar a que la página esté completamente cargada
-            page.waitForLoadState(LoadState.NETWORKIDLE);
+            page.navigate(url);
             
-            // Obtener todos los enlaces de la página
-            List<ElementHandle> links = page.querySelectorAll("a[href]");
+            // Extraer el contenido de la etiqueta <html>
+            String contenido = page.locator("body").innerHTML();
+
+            //System.out.println(contenido);
             
+            
+
             // Usar un conjunto para almacenar las URLs únicas
-            Set<String> urlUnicas = new HashSet<>();
-            
-            // Iterar sobre los enlaces encontrados y agregar las URLs únicas al conjunto
-            for (ElementHandle link : links) {
-                String href = link.getAttribute("href");
-                if (href.matches(url+"[^/]+")) {
-                    urlUnicas.add(href);
-                }
-            }
-            
+            Set<String> urlUnicas = new AutomataRevistas().revistas(contenido, url.substring(url.indexOf("//")+2));
+
             // Imprimir las URLs únicas
             for (String link : urlUnicas) {
                 response +=link+"\n";
@@ -47,6 +39,7 @@ public class RecuperadorHTML {
             
             // Cerrar el navegador
             browser.close();
+            System.out.println("a");
         }
 
 		return response;

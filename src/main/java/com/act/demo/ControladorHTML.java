@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -16,8 +16,9 @@ public class ControladorHTML {
 	
 	@GetMapping()
 	public String obtenerHTML() {
-		String url = "https://revistaidentidad.uaemex.mx/index.php/";
-		System.out.println(url);
+		String url = "https://revistas.unam.mx/index.php/";
+		recuperador.obtenerHTML(url);
+
 		System.out.print(recuperador.obtenerHTML(url));
 
 		return "Holi.html";
