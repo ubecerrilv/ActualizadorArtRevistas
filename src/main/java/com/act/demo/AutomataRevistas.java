@@ -35,10 +35,8 @@ public class AutomataRevistas {
 
         //RECORRER TODO EL ARREGLO PARA OBTENER LOS URLS
         for(int i = 0; i<htmlArray.length; i++){
-            //VERIFICAR SI ES ESTADO FINAL Y FIN DE PAGINA, CASO POSITIVO AGREGAR AL ARRAY 
-            //!Verificar el estado final y conflicto con el inicio de la pagina
+            //VERIFICAR SI ES ESTADO FINAL Y FIN DE PAGINA, CASO POSITIVO AGREGAR AL ARRAY
 			if((htmlArray[i]==' ' || htmlArray[i]=='>' || htmlArray[i]=='"'|| htmlArray[i]==',') && (this.estado.compareToIgnoreCase("Q9")==0)) {
-                //System.out.println(cor);
 				revistas.add(cor);
 				cor="";
 			}

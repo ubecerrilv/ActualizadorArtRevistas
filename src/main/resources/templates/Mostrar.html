@@ -6,11 +6,11 @@
 </head>
 <body>
 <h1>Elementos de la revista</h1>
-<ul>
+<ol>
     <!-- Itera sobre los elementos del HashSet pasados desde el controlador -->
     <li th:each="revista : ${revistas}">
         <span th:text="${revista}"></span>
     </li>
-</ul>
+</ol>
 </body>
 </html>
