@@ -1,13 +1,14 @@
 package com.act.demo;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Revista {
 
     private String revista;
-    private HashSet<String> articulos;
+    private ArrayList<String> articulos;
 
-    public Revista(String revista, HashSet<String> articulos) {
+    public Revista(String revista, ArrayList<String> articulos) {
         this.revista = revista;
         this.articulos = articulos;
     }
@@ -16,7 +17,7 @@ public class Revista {
         return revista;
     }
 
-    public HashSet<String> getArticulos() {
+    public ArrayList<String> getArticulos() {
         return articulos;
     }
 }

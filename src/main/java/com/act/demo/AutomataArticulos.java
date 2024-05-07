@@ -16,9 +16,9 @@ public class AutomataArticulos {
 
     private String cor = "";
     private ArrayList<Character> numeros = new ArrayList<Character>();
-    private HashSet<String> articulos = new HashSet<String>();
+    private ArrayList<String> articulos = new ArrayList<String>();
 
-    public HashSet<String> articulos (String html, String inicio){
+    public ArrayList<String> articulos (String html, String inicio){
         //RELLENAR EL ARRAYLIST
         for(char c : N) {
             numeros.add(c);
